@@ -1,0 +1,35 @@
+.record {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  height: 100%;
+}
+
+.timer {
+  height: 40%;
+}
+
+.selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  &-item {
+    display: flex;
+    flex-direction: row;
+    & > p {
+      min-width: 15%;
+      font-weight: 600;
+      &::after {
+        content: " :";
+      }
+    }
+  }
+}
+
+.operation {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  & > * {
+    height: calc(100% / 3);
+  }
+}

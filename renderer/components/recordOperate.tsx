@@ -1,3 +1,8 @@
+import {
+  CloseCircleTwoTone,
+  PauseCircleTwoTone,
+  PlayCircleTwoTone,
+} from "@ant-design/icons";
 import { Button, notification } from "antd";
 import React from "react";
 
@@ -13,30 +18,36 @@ const defaultNotiStyle: React.CSSProperties = {
 };
 
 const RecordOperation = () => {
-  const startHandle = () => {
+  const startHandle = async () => {
     notification.success({
-      key: notiTimerKey,
+      // key: notiTimerKey,
       message: "Timer is start !",
       description: <p>Don't forget to STOP when job is done !</p>,
       style: defaultNotiStyle,
+      icon: <PlayCircleTwoTone twoToneColor={"blue"} />,
     });
+
+    const res = await fetch("http://10.122.77.10/api/dummy");
+    console.log(res);
   };
 
   const pauseHandle = () => {
     notification.info({
-      key: notiTimerKey,
+      // key: notiTimerKey,
       message: "Timer is pause !",
       description: <p>Don't forget to START when you continue your job !</p>,
       style: defaultNotiStyle,
+      icon: <PauseCircleTwoTone twoToneColor={"orange"} />,
     });
   };
 
   const stopHandle = () => {
     notification.success({
-      key: notiTimerKey,
+      // key: notiTimerKey,
       message: "Timer is stop !",
       description: <p>Good work ! Your job was recorded !</p>,
       style: defaultNotiStyle,
+      icon: <CloseCircleTwoTone twoToneColor={"red"} />,
     });
   };
 

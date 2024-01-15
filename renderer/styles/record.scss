@@ -6,17 +6,54 @@
 
 .timer {
   height: 40%;
+  position: relative;
+  border-bottom: 1px solid lightgray;
+  margin: 0 3px;
+  &-clock {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 82px;
+    text-align: right;
+  }
+  &-detail {
+    &-topic {
+      height: 40px;
+      width: 350px;
+      overflow-y: auto;
+      font-size: 24px;
+      font-weight: 600;
+      background-color: antiquewhite;
+    }
+    &-time {
+      display: flex;
+      font-size: 24px;
+      gap: 1rem;
+      margin: 0 auto;
+      background-color: rgb(234, 255, 234);
+      & > div > p {
+        letter-spacing: 2px;
+      }
+      &-duration {
+        font-style: italic;
+        font-weight: 600;
+        margin-left: auto;
+      }
+    }
+  }
 }
 
 .selector {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding: 2px 2px;
   &-item {
     display: flex;
     flex-direction: row;
+    align-items: center;
     & > p {
-      min-width: 15%;
+      min-width: 20%;
       font-weight: 600;
       &::after {
         content: " :";

@@ -1,5 +1,11 @@
-import { HomeOutlined, SettingOutlined } from "@ant-design/icons";
+import {
+  HomeOutlined,
+  MinusOutlined,
+  SettingOutlined,
+} from "@ant-design/icons";
 import { Button } from "antd";
+import { ipcRenderer } from "electron";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -8,9 +14,17 @@ const Layout = ({ children }) => {
     <>
       <div className="header">
         <div className="header-title">
+          <Image src="/images/pe-dx-logo.ico" width={24} height={24} />
           <p>Indirect Time recorder</p>
         </div>
         <div className="header-menu">
+          <Button
+            type="text"
+            onClick={() => ipcRenderer.send("minimize")}
+            style={{ padding: 0, color: "white" }}
+          >
+            <MinusOutlined color="white" />
+          </Button>
           <Link href="/home">
             <HomeOutlined />
           </Link>
